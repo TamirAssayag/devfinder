@@ -1,0 +1,159 @@
+@import "../../styles/colorScheme";
+@import "../../styles/import";
+
+.user {
+  margin-top: 1.5rem;
+  min-height: 444px;
+
+  width: 100%;
+  &__wrapper {
+    border-radius: 1rem;
+    background-color: $d-dark;
+    height: 444px;
+    .light & {
+      box-shadow: 0 16px 30px -10px rgba(70, 96, 187, 0.2);
+    }
+
+    .light & {
+      background-color: $l-white;
+    }
+  }
+  &__details {
+    height: 100%;
+    padding: 3rem;
+    display: flex;
+
+    &--info {
+      h1 {
+        font-size: 26px;
+      }
+
+      .text--blue {
+        font-size: 16px;
+      }
+    }
+    &--left {
+      height: 100%;
+      img {
+        margin-top: 0.5rem;
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+      }
+    }
+
+    &--right {
+      width: 100%;
+      height: 100%;
+      margin-left: 2.3rem;
+
+      .wrapper {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+
+    &--name {
+      h1 {
+        font-size: 26px;
+        a {
+          color: $l-white;
+          text-decoration: none;
+          .light & {
+            color: $l-dark;
+          }
+        }
+      }
+    }
+  }
+
+  &__bio {
+    margin-top: 1.5rem;
+    min-height: 30px;
+    font-size: 15px;
+    color: $l-white;
+    font-weight: normal;
+
+    .light & {
+      color: $l-dark-blue;
+    }
+  }
+
+  &__joinedDate {
+    margin-top: 1rem;
+    font-size: 15px;
+    color: $blue;
+
+    .light & {
+      color: $l-gray;
+    }
+  }
+
+  &__info {
+    &--card {
+      margin-top: 1rem;
+      background-color: $d-darker;
+      color: $l-white;
+      height: 85px;
+      border-radius: 1rem;
+      padding: 0rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .light & {
+        background-color: $l-light-blue;
+        color: $l-dark;
+      }
+
+      table {
+        border-collapse: collapse;
+        table-layout: fixed;
+        width: 100%;
+
+        th {
+          text-align: left;
+          font-weight: normal;
+          font-size: 13px;
+
+          .light & {
+            color: $l-dark-blue;
+          }
+        }
+
+        tr {
+          td {
+            font-size: 22px;
+            font-weight: bold;
+            text-align: left;
+          }
+        }
+      }
+    }
+    &--socials {
+      display: flex;
+      margin-top: 2.3rem;
+
+      .left {
+        margin-right: 5rem;
+      }
+      .social {
+        color: $l-white;
+        p {
+          font-size: 15px;
+
+          .light & {
+            color: $l-dark-blue;
+          }
+        }
+        svg {
+          margin-right: 1rem;
+        }
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}

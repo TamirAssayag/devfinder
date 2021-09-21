@@ -1,0 +1,22 @@
+@import "../../styles/colorScheme";
+
+.btn {
+  width: 106px;
+  height: 50px;
+  border-radius: 1rem;
+  outline: none;
+  border: none;
+  font-family: "Space Mono", sans-serif;
+
+  &--search {
+    color: $l-white;
+    font-weight: bold;
+    background-color: $blue;
+    transition: background-color 0.2s ease-out;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $blue-hover;
+    }
+  }
+}

@@ -1,0 +1,116 @@
+@import "./styles/colorScheme";
+@import "./styles/import";
+
+.text {
+  &--blue {
+    color: $blue;
+  }
+}
+
+.err-message {
+  color: $error;
+  font-size: 15px;
+  font-weight: bold;
+  margin-right: 1rem;
+  white-space: pre;
+}
+
+body.light {
+  background-color: $l-light-blue;
+}
+
+.app {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+
+    .logo {
+      .light & {
+        path {
+          fill: $d-dark;
+        }
+      }
+    }
+
+    .theme {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      p {
+        font-size: 13px;
+        font-weight: bold;
+        color: white;
+        text-transform: uppercase;
+
+        .light & {
+          color: $l-dark;
+        }
+      }
+    }
+  }
+
+  &__search {
+    display: flex;
+    align-items: center;
+    padding: 0 0.5rem 0 2rem;
+    background-color: $d-dark;
+    height: 69px;
+    max-width: 100%;
+    border-radius: 1rem;
+
+    .light & {
+      background-color: $l-white;
+      box-shadow: 0 16px 30px -10px rgba(70, 96, 187, 0.2);
+    }
+
+    &--input {
+      margin-left: 1.5rem;
+      width: 60%;
+      input {
+        outline: none;
+        border: none;
+        background-color: transparent;
+        font-family: "Space Mono";
+        height: 100%;
+        padding: 1rem;
+        width: 100%;
+        color: white;
+        font-size: 18px;
+
+        .light & {
+          color: $l-dark-blue;
+        }
+
+        &::placeholder {
+          color: white;
+          font-size: 18px;
+
+          .light & {
+            color: $l-dark-blue;
+          }
+        }
+      }
+    }
+
+    &--button {
+      margin-left: auto;
+    }
+  }
+}
+
+.container {
+  padding: 1.5rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 730px;
+  margin: auto;
+  @include media(">=desktop") {
+  }
+}
