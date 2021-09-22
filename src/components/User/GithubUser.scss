@@ -200,16 +200,11 @@
   }
 
   @include media("<=tablet") {
-    &__details {
-      &--right {
-        .wrapper {
-          &--inner {
-            display: unset;
-            img {
-              width: 70px;
-              height: 100%;
-            }
-          }
+    .wrapper {
+      &--inner {
+        img {
+          width: 70px !important;
+          height: 100%;
         }
       }
     }
