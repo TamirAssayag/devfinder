@@ -9,13 +9,11 @@
   &__wrapper {
     border-radius: 1rem;
     background-color: $d-dark;
-    height: 444px;
-    .light & {
-      box-shadow: 0 16px 30px -10px rgba(70, 96, 187, 0.2);
-    }
+    min-height: 100%;
 
     .light & {
       background-color: $l-white;
+      box-shadow: 0 16px 30px -10px rgba(70, 96, 187, 0.2);
     }
   }
   &__details {
@@ -39,6 +37,7 @@
         width: 110px;
         height: 110px;
         border-radius: 50%;
+        user-select: none;
       }
     }
 
@@ -50,15 +49,27 @@
       .wrapper {
         display: flex;
         justify-content: space-between;
+
+        &--inner {
+          display: block;
+          img {
+            display: none;
+          }
+        }
       }
     }
 
     &--name {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+
       h1 {
         font-size: 26px;
         a {
           color: $l-white;
-          text-decoration: none;
+
           .light & {
             color: $l-dark;
           }
@@ -80,9 +91,12 @@
   }
 
   &__joinedDate {
-    margin-top: 1rem;
     font-size: 15px;
-    color: $blue;
+    color: $l-white;
+
+    &-m {
+      display: none;
+    }
 
     .light & {
       color: $l-gray;
@@ -133,26 +147,152 @@
     }
     &--socials {
       display: flex;
+      justify-content: space-between;
+      width: 100%;
       margin-top: 2.3rem;
 
-      .left {
-        margin-right: 5rem;
-      }
       .social {
-        color: $l-white;
-        p {
-          font-size: 15px;
+        font-size: 15px;
+
+        a {
+          color: $l-white;
+          transition: all 0.2s ease;
+
+          &:hover {
+            text-decoration: underline;
+          }
 
           .light & {
             color: $l-dark-blue;
           }
         }
+        .LinesEllipsis {
+          color: currentColor;
+
+          .light & {
+            color: $l-dark-blue;
+          }
+        }
+
+        p {
+          color: $l-white;
+          .light & {
+            color: $l-dark-blue;
+          }
+        }
+
         svg {
           margin-right: 1rem;
+          path {
+            fill: white;
+
+            .light & {
+              fill: $l-dark-blue;
+            }
+          }
         }
+
         margin-bottom: 1rem;
         display: flex;
         align-items: center;
+      }
+    }
+  }
+
+  @include media("<=tablet") {
+    &__details {
+      &--right {
+        .wrapper {
+          &--inner {
+            display: unset;
+            img {
+              width: 70px;
+              height: 100%;
+            }
+          }
+        }
+      }
+    }
+    &--name {
+      h1 {
+        font-size: 16px;
+      }
+    }
+
+    &__bio {
+      margin: 2.125rem 0 1.125rem;
+    }
+
+    &__info {
+      &--card {
+        padding: 0rem 1rem;
+      }
+
+      &--socials {
+        display: block;
+      }
+    }
+
+    table {
+      th {
+        text-align: center;
+        font-size: 11px;
+        padding-bottom: 8px;
+      }
+
+      tr {
+        td {
+          text-align: center;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  @include media("<=desktop") {
+    &__details {
+      font-size: 13px;
+      padding: 1.5rem;
+      display: block;
+
+      &--left {
+        img {
+          display: none;
+        }
+      }
+
+      &--right {
+        margin: 0;
+
+        .wrapper {
+          &--inner {
+            display: flex;
+            align-items: center;
+            img {
+              display: block;
+              border-radius: 50%;
+              width: 110px;
+              height: 100%;
+            }
+          }
+        }
+      }
+
+      &--m {
+        margin-left: 1.5rem;
+      }
+    }
+
+    &__joinedDate {
+      display: none;
+
+      &-m {
+        display: block;
+        margin-top: 9px;
+        font-size: 13px;
+        .light & {
+          color: $l-gray;
+        }
       }
     }
   }

@@ -5,12 +5,15 @@ import { ReactComponent as SearchIcon } from "./assets/images/icon-search.svg";
 import GithubUser from "./components/User/GithubUser";
 import Button from "./components/UI/Button";
 import "./App.scss";
+import axios from "axios";
+
 const App = () => {
   // useState = listening to changes
   const [search, setSearch] = React.useState("");
   const [result, setResult] = React.useState({});
   const [error, setError] = React.useState("");
-  const [isDark, setDarkMode] = React.useState(false);
+  const [isDark, setIsDarkMode] = React.useState(false);
+  const [isUser, setIsUser] = React.useState(false);
 
   const API = (value) => `https://api.github.com/users/${value}`;
 
@@ -18,50 +21,39 @@ const App = () => {
     setSearch(e.target.value);
   };
 
-  const handleSearch = async (e) => {
+  const handleSearch = (e) => {
     e.preventDefault();
     if (search.length) {
-      await fetchUser().then(setResult).catch(setError);
+      fetchUser();
     } else {
       setError("Search user");
     }
   };
 
   async function fetchUser() {
-    return new Promise((resolve, reject) => {
-      fetch(API(search.replace(/\s/g, ""))).then((res) => {
-        const response = res;
-        const responsePromise = res.json();
-        responsePromise
-          .then((data) => {
-            if (response.status >= 400) {
-              reject("No results");
-            } else {
-              resolve(data);
-              setError("");
-            }
-          })
-          .catch((error) => {
-            reject(error);
-          });
-      });
-    });
+    try {
+      const response = await axios.get(API(search.replace(/\s/g, "")));
+      setResult(response.data);
+      setIsUser(true);
+      setError("");
+    } catch {
+      setError("No results");
+      setIsUser(false);
+    }
   }
 
-  const handleDarkMode = () => {
+  const handleTheme = () => {
     if (!isDark) {
       document.body.classList.add("light");
     } else {
       document.body.classList.remove("light");
     }
-    setDarkMode(!isDark);
+    setIsDarkMode(!isDark);
   };
 
   React.useEffect(() => {
-    return () => {
-      // Destroy
-    };
-  }, []);
+    return () => {};
+  });
 
   return (
     <div className="app">
@@ -70,7 +62,7 @@ const App = () => {
           <div className="logo">
             <Logo />
           </div>
-          <ThemeMode mode={isDark} onClick={handleDarkMode} />
+          <ThemeMode mode={isDark} onClick={handleTheme} />
         </div>
 
         <form className="app__search">
@@ -90,7 +82,7 @@ const App = () => {
           </div>
         </form>
         <div className="user">
-          {result.login && <GithubUser result={result} />}
+          {result.login && <GithubUser result={result} user={isUser} />}
         </div>
       </div>
     </div>

@@ -7,12 +7,28 @@
   }
 }
 
+a {
+  color: unset;
+  text-decoration: none;
+}
+
+.not-available {
+  opacity: 0.5;
+}
+
 .err-message {
   color: $error;
   font-size: 15px;
   font-weight: bold;
   margin-right: 1rem;
   white-space: pre;
+
+  @include media("<=desktop") {
+    position: absolute;
+    bottom: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 body.light {
@@ -62,6 +78,15 @@ body.light {
     height: 69px;
     max-width: 100%;
     border-radius: 1rem;
+    position: relative;
+
+    @include media("<=phone") {
+      padding: 0 0.5rem 0 1rem;
+
+      svg {
+        width: 40px;
+      }
+    }
 
     .light & {
       background-color: $l-white;
@@ -71,6 +96,12 @@ body.light {
     &--input {
       margin-left: 1.5rem;
       width: 60%;
+
+      @include media("<=phone") {
+        width: 100%;
+        margin-left: 8px;
+      }
+
       input {
         outline: none;
         border: none;
@@ -82,6 +113,12 @@ body.light {
         color: white;
         font-size: 18px;
 
+        @include media("<=phone") {
+          font-size: 16px;
+          padding: 0;
+          line-height: 1.92;
+        }
+
         .light & {
           color: $l-dark-blue;
         }
@@ -89,6 +126,10 @@ body.light {
         &::placeholder {
           color: white;
           font-size: 18px;
+
+          @include media("<=phone") {
+            font-size: 13px;
+          }
 
           .light & {
             color: $l-dark-blue;
@@ -109,8 +150,10 @@ body.light {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 730px;
+  max-width: 768px;
   margin: auto;
-  @include media(">=desktop") {
+
+  @include media("<=desktop") {
+    max-width: 573px;
   }
 }

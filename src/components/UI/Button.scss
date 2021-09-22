@@ -1,5 +1,5 @@
 @import "../../styles/colorScheme";
-
+@import "../../styles/import";
 .btn {
   width: 106px;
   height: 50px;
@@ -7,6 +7,11 @@
   outline: none;
   border: none;
   font-family: "Space Mono", sans-serif;
+
+  @include media("<=phone") {
+    width: 84px;
+    height: 46px;
+  }
 
   &--search {
     color: $l-white;

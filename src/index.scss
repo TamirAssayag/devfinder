@@ -13,4 +13,5 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: $d-darker;
   transition: all 200ms linear;
+  overflow: hidden;
 }
