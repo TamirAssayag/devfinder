@@ -98,7 +98,6 @@ const GithubUser = ({ result, user }) => {
                     trimRight
                     basedOn="letters"
                   />
-                  {/* <p>{result.location ? result.location : "Not Available"}</p> */}
                 </div>
                 <div
                   className={classNames("social", {

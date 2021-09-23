@@ -8,7 +8,7 @@
   border: none;
   font-family: "Space Mono", sans-serif;
 
-  @include media("<=phone") {
+  @include media("<phone") {
     width: 84px;
     height: 46px;
   }

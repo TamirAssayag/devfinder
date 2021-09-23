@@ -199,7 +199,7 @@
     }
   }
 
-  @include media("<=tablet") {
+  @include media("<tablet") {
     .wrapper {
       &--inner {
         img {
@@ -244,7 +244,7 @@
     }
   }
 
-  @include media("<=desktop") {
+  @include media("<desktop") {
     &__details {
       font-size: 13px;
       padding: 1.5rem;
