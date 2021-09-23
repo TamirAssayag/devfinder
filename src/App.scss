@@ -35,6 +35,10 @@ body.light {
   background-color: $l-light-blue;
 }
 
+body.dark {
+  background-color: $d-darker;
+}
+
 .app {
   &__header {
     display: flex;
@@ -55,6 +59,7 @@ body.light {
       align-items: center;
       cursor: pointer;
       transition: all 0.2s ease;
+      user-select: none;
 
       p {
         font-size: 13px;

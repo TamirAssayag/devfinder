@@ -62,7 +62,7 @@ const App = () => {
           <div className="logo">
             <Logo />
           </div>
-          <ThemeMode mode={isDark} onClick={handleTheme} />
+          <ThemeMode mode={isDark} onClick={() => handleTheme()} />
         </div>
 
         <form className="app__search">
