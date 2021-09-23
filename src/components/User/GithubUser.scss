@@ -7,7 +7,7 @@
 
   width: 100%;
   &__wrapper {
-    border-radius: 1rem;
+    border-radius: 15px;
     background-color: $d-dark;
     min-height: 100%;
 
@@ -109,7 +109,7 @@
       background-color: $d-darker;
       color: $l-white;
       height: 85px;
-      border-radius: 1rem;
+      border-radius: 15px;
       padding: 0rem 2rem;
       display: flex;
       flex-direction: column;

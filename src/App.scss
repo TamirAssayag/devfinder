@@ -78,7 +78,7 @@ body.light {
     background-color: $d-dark;
     height: 69px;
     max-width: 100%;
-    border-radius: 1rem;
+    border-radius: 15px;
     position: relative;
 
     @include media("<phone") {
