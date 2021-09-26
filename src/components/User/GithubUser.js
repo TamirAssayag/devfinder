@@ -129,7 +129,7 @@ const GithubUser = ({ result, user }) => {
                   <p>
                     {result.twitter_username
                       ? `@${result.twitter_username}`
-                      : "Not Avilable"}
+                      : "Not Available"}
                   </p>
                 </div>
                 <div
@@ -138,7 +138,7 @@ const GithubUser = ({ result, user }) => {
                   })}
                 >
                   <CompanyIcon />
-                  <p>{result.company ? result.company : "Not Avilable"}</p>
+                  <p>{result.company ? result.company : "Not Available"}</p>
                 </div>
               </div>
             </div>
